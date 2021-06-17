@@ -11,9 +11,6 @@ function TodoForm(props) {
       inputRef.current.focus();
     });
   
-    const handleChange = e => {
-      setInput(e.target.value);
-    };
   
     const handleSubmit = e => {
       e.preventDefault();
@@ -32,7 +29,9 @@ function TodoForm(props) {
             <input
               placeholder='Update your item'
               value={input}
-              onChange={handleChange}
+              onChange={e =>
+                setInput(e.target.value)
+              }
               name='text'
               ref={inputRef}
               className='todo-input edit'
@@ -46,7 +45,9 @@ function TodoForm(props) {
             <input
               placeholder='Add to the list :)'
               value={input}
-              onChange={handleChange}
+              onChange={e =>
+                setInput(e.target.value)
+              }
               name='text'
               className='todo-input'
               ref={inputRef}
