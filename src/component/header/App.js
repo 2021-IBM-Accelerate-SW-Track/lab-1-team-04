@@ -1,9 +1,9 @@
-//import Header from "./component/header"
+import Header from "./component/header"
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import './App.css';
-import TodoForm from "./component/header/TodoForm.js";
-import TodoList from "./component/header/TodoList.js";
+import TodoForm from './component/header/TodoForm';
+import TodoList from './component/header/TodoList';
 
 
 function App() {
