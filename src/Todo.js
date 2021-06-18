@@ -21,6 +21,8 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
     return <TodoForm edit={edit} onSubmit={submitUpdate} />;
   }
 
+
+
   return todos.map((todo, index) => (
     <div
       className={todo.isComplete ? 'todo-row complete' : 'todo-row'}
@@ -39,6 +41,14 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
           className='edit-icon'
         />
       </div>
+      <div class="form-group ">
+        <div class="col-md-5">
+          <div class="checkbox">
+            <input type="checkbox" name="packersOff" id="packers" value="1"/>
+            <label for="todos" class="strikethrough"></label>
+        </div>
+      </div>
+    </div>
     </div>
   ));
 };
