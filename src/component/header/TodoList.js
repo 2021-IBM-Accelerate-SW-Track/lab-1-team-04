@@ -11,14 +11,20 @@ function TodoList() {
     }
     setTodos([todo, ...todos]);
     console.log(...todos);
+
+    const timestamp = new Date();
+    console.log(timestamp);
   };
 
   const updateTodo = (todoId, newValue) => {
-    if (!newValue.text || /^\s*$/.test(newValue.text)) {
+    if ((!todos.includes(newValue) && !newValue.text) || /^\s*$/.test(newValue.text)) {
       return;
     }
 
     setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
+
+    const timestamp = new Date();
+    console.log(timestamp);
   };
 
   const removeTodo = id => {
@@ -34,7 +40,7 @@ function TodoList() {
     }));
     
   };
-
+  
   return (
     <>
       <h1>To Do List</h1>

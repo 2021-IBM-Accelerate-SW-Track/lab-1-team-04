@@ -6,7 +6,7 @@ function TodoList() {
   const [todos, setTodos] = useState([]);
 
   const addTodo = todo => {
-    if (!todo.text || /^\s*$/.test(todo.text)) {
+    if ((!todos.includes(newValue) && !newValue.text) || /^\s*$/.test(newValue.text)) {
       return;
     }
 

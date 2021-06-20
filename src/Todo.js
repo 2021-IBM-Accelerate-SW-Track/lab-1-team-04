@@ -3,12 +3,20 @@ import TodoForm from './component/header/TodoForm';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
 
+
+
 const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   const [edit, setEdit] = useState({
     id: null,
     value: ''
   });
 
+  const constructor = () => {
+    this.state = {
+      currentDateTime: Date().toLocaleString()
+    }
+  };
+  
   const submitUpdate = value => {
     updateTodo(edit.id, value);
     setEdit({
@@ -24,6 +32,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
 
 
   return todos.map((todo, index) => (
+    
     <div
       className={todo.isComplete ? 'todo-row complete' : 'todo-row'}
       key={index}
@@ -49,8 +58,10 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
         </div>
       </div>
     </div>
+    {/*<div class="time"> { this.state.currentDateTime } </div> */}
     </div>
-  ));
+  )
+  );
 };
 
 export default Todo;
