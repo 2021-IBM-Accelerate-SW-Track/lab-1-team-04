@@ -42,7 +42,7 @@ function TodoForm(props) {
           </>
         ) : (
           <>
-            <input
+            <input data-testid="new-item-input"
               placeholder='Add to the list :)'
               value={input}
               onChange={e =>
@@ -52,7 +52,7 @@ function TodoForm(props) {
               className='todo-input'
               ref={inputRef}
             />
-            <button onClick={handleSubmit} className='new-item-button'>
+            <button data-testid="new-item-button" onClick={handleSubmit} className='new-item-button'>
               +
             </button>
           </>
