@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TodoForm from './component/header/TodoForm';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
-
+import { Chip } from "@material-ui/core";
 
 
 const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
@@ -56,6 +56,9 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
             <input type="checkbox" name="packersOff" id="packers" value="1"/>
             <label for="todos" class="strikethrough"></label>
         </div>
+      </div>
+      <div class="col-md-4">
+      <Chip label={new Date().toLocaleDateString() + "@" + new Date().toLocaleTimeString()} style={{ color: "#3581D8" }} />
       </div>
     </div>
     {/*<div class="time"> { this.state.currentDateTime } </div> */}

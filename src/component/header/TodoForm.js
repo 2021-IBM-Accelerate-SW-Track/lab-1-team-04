@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-
+import { v4 } from "uuid";
+import { Chip } from  "@material-ui/core";
 
 
 function TodoForm(props) {
@@ -16,8 +17,8 @@ function TodoForm(props) {
       e.preventDefault();
   
       props.onSubmit({
-        id: Math.floor(Math.random() * 10000),
-        text: input + "  " + new Date().toLocaleDateString() + "@" + new Date().toLocaleTimeString(),
+        id: v4(),
+        text: input 
       });
       setInput('');
     };

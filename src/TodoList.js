@@ -1,54 +1,54 @@
 import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 import Todo from '../../Todo';
+import { Typography } from "@material-ui/core";
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
 
   const addTodo = todo => {
+    if (!todo.text || /^\s*$/.test(todo.text)) {
+      return;
+    }
+    setTodos([todo, ...todos]);
+    console.log(...todos);
+
+    const timestamp = new Date();
+    console.log(timestamp);
+  };
+
+  const updateTodo = (todoId, newValue) => {
     if ((!todos.includes(newValue) && !newValue.text) || /^\s*$/.test(newValue.text)) {
       return;
     }
 
-    const newTodos = [todo, ...todos];
-
-    setTodos(newTodos);
-    console.log(...todos);
-  };
-
-  const updateTodo = (todoId, newValue) => {
-    if (!newValue.text || /^\s*$/.test(newValue.text)) {
-      return;
-    }
-
     setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
+
+    const timestamp = new Date();
+    console.log(timestamp);
   };
 
   const removeTodo = id => {
-    const removedArr = [...todos].filter(todo => todo.id !== id);
-
-    setTodos(removedArr);
+    setTodos([...todos].filter(todo => todo.id !== id));
   };
 
   const completeTodo = id => {
-    let updatedTodos = todos.map(todo => {
+    setTodos(todos.map(todo => {
       if (todo.id === id) {
         todo.isComplete = !todo.isComplete;
       }
       return todo;
-    });
-    setTodos(updatedTodos);
+    }));
+    
   };
-
+  
   return (
     <>
-      <h1>To Do List</h1>
+      <Typography variant="h3" align="center" style={{ color: "#0C0B13" }}>To Do List</Typography>
       <TodoForm onSubmit={addTodo} />
       <Todo
         todos={todos}
-        completeTodo={completeTodo}
-        removeTodo={removeTodo}
-        updateTodo={updateTodo}
+        completeTodo={completeTodo} removeTodo={removeTodo} updateTodo={updateTodo}
       />
     </>
   );
