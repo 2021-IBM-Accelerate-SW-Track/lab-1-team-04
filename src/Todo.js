@@ -56,10 +56,10 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
             <input type="checkbox" name="packersOff" id="packers" value="1"/>
             <label for="todos" class="strikethrough"></label>
         </div>
+        <Chip label={new Date().getMonth() + "/" + new Date().getDate() + "/" + new Date().getFullYear() + " " + new Date().getHours() + ":" + new Date().getMinutes()} style={{ color: "#3581D8" }} />
       </div>
-      <div class="col-md-4">
-      <Chip label={new Date().toLocaleDateString() + "@" + new Date().toLocaleTimeString()} style={{ color: "#3581D8" }} />
-      </div>
+
+  
     </div>
     {/*<div class="time"> { this.state.currentDateTime } </div> */}
     </div>

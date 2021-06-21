@@ -10,7 +10,6 @@ function TodoList() {
     if  ((!todo.text || /^\s*$/.test(todo.text)) && !todos.some(x => x.text === todo.text))  {
       return;
     }
-    {/*var y = findDuplicates([todo, ...todos]); */}
     setTodos([todo, ...todos]);
     console.log(...todos);
   };
