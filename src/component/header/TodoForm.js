@@ -52,7 +52,7 @@ function TodoForm(props) {
               className='todo-input'
               ref={inputRef}
             />
-            <button onClick={handleSubmit} className='todo-button'>
+            <button onClick={handleSubmit} className='new-item-button'>
               +
             </button>
           </>
